@@ -5,7 +5,10 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     git
 
-RUN pip install PyYAML
+RUN python3 -m venv /path/to/venv
+ENV PATH="/path/to/venv/bin:$PATH"
+
+RUN pip3 install PyYAML
 
 COPY feed.py /usr/bin/feed.py
 
